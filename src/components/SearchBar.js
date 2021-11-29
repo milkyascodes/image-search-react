@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import {  Form, Header, Search, Segment } from 'semantic-ui-react'
+import {  Form, Header, Icon, Label, Search, Segment } from 'semantic-ui-react'
 
 function SearchBar({submitting, notifi}) {
     const [search, setSearch] = useState('')
@@ -17,9 +17,16 @@ function SearchBar({submitting, notifi}) {
     
     return (
         <Segment raised  >
+            <Header textAlign="right">
+
+                <Label href="https://github.com/milkyascodes" target="_blank"  as='a' color="teal">
+                    <Icon name='github' /> Follow me
+                </Label>
+            </Header>
             <Form onSubmit={(e)=>onFormSubmit(e)}>
                
-               <Header>Search</Header>
+               <Header>Search for images 👇</Header>
+               <br />
                 <Search
                     id={search}
                     loading={loading}
@@ -29,10 +36,9 @@ function SearchBar({submitting, notifi}) {
                     onBlur={()=> setloading(false)}
                     input={{ icon: 'search', iconPosition: 'left' }}
                 />
-                   
-                    
-                
+    
             </Form>
+            
         </Segment>
             
     )
